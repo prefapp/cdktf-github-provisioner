@@ -1,0 +1,28 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "dist",
+    "composite": true
+  },
+  "references": [
+    {
+      "path": "../catalog_common"
+    },
+
+    {
+      "path": "../features_preparer"
+    },
+    {
+      "path": "../terraform_provisioner"
+    }
+  ],
+  "include": [
+    "index.ts",
+    "init.ts",
+    "client.ts",
+    "src/**/*.ts",
+    "test/**/*.ts",
+    ".gen/**/*.ts"
+  ]
+}

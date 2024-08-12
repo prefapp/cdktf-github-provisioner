@@ -1,0 +1,25 @@
+feature_name: "feature_a"
+args:
+  NAME:
+    $ref: [metadata, name]
+  LITERAL:
+    $lit: foo
+  TECH:
+    $ref: [spec, provisioner, technology, stack]
+
+files:
+  - src: test.txt
+    dest: test.txt
+    upgradable: false
+  - src: .github/workflows/${{ TECH }}/pr-verify.yaml
+    dest: .github/workflows/pr-verify.yaml
+    upgradable: false
+patches:
+  - name: "add_annotation"
+    op: "add"
+    path: "/metadata/annotations/backstage.io~1feature_a-ref"
+    value: "url:https://github.com/prefapp/feature_a/tree/main"
+unpatches:
+  - name: "remove_annotation"
+    op: "remove"
+    path: "/metadata/annotations/backstage.io~1feature_a-ref"

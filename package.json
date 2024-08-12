@@ -1,0 +1,53 @@
+{
+  "name": "@prefapp/firestartr-provisioner",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "types": "main.ts",
+  "license": "MPL-2.0",
+  "private": true,
+  "scripts": {
+    "get": "cdktf get",
+    "build": "tsc --build",
+    "build-cdktf": "tsc -p tsconfig.cdktf.json && ncc build --source-map dist-cdktf/client.js -o dist-cdktf",
+    "synth": "cdktf synth",
+    "compile": "tsc --build",
+    "watch": "tsc -w",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "synth-component": "ts-node deploy-artifact.ts",
+    "upgrade": "npm i cdktf@latest cdktf-cli@latest",
+    "upgrade:next": "npm i cdktf@next cdktf-cli@next",
+    "set-status-component": "ts-node initializers/CommandLine.ts status",
+    "scaffold-repo": "ts-node initializers/CommandLine.ts scaffolding",
+    "reconcile": "ts-node initializers/CommandLine.ts reconcile",
+    "reconcile-after-delete": "ts-node initializers/CommandLine.ts reconcile-after-delete",
+    "update": "ts-node initializers/CommandLine.ts update",
+    "prepare-features": "ts-node initializers/CommandLine.ts prepare-features",
+    "install-feature": "install-feature",
+    "lint": "gts lint || exit 0",
+    "clean": "gts clean",
+    "fix": "gts fix **/*.ts",
+    "prepar": "npm run compile",
+    "pretest": "npm run compile"
+  },
+  "engines": {
+    "node": ">=14.0"
+  },
+  "dependencies": {
+    "@cdktf/provider-aws": "^18.0.6",
+    "@cdktf/provider-azurerm": "^11.0.4",
+    "@cdktf/provider-github": "12.0.0",
+    "catalog_common": "file:../catalog_common",
+    "terraform_provisioner": "file:../terraform_provisioner",
+    "cdktf": "^0.19.0",
+    "cdktf-cli": "^0.19.0",
+    "constructs": "^10.0.113",
+    "features_preparer": "file:../features_preparer",
+    "github": "file:../github",
+    "js-yaml": "^4.1.0",
+    "jsonschema": "^1.4.0",
+    "lodash": "^4.17.21",
+    "octokit": "^2.0.7",
+    "uuid": "^9.0.0"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "dist-cdktf",
+    "composite": true
+  },
+  "references": [
+    {
+      "path": "../catalog_common"
+    },
+
+    {
+      "path": "../features_preparer"
+    },
+  ],
+  "include": [
+    "client.ts",
+    "src/**/*.ts",
+    "test/**/*.ts"
+  ]
+}
