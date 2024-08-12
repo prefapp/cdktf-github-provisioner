@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  cdktf:
+    build:
+      dockerfile: Dockerfile.dev
+    working_dir: /library
+    volumes:
+      - ${PWD}:/library
+    environment:
+      - DEBUG=${DEBUG}
+      - NPM_AUTH_TOKEN=${NPM_AUTH_TOKEN}

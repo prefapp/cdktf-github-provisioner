@@ -1,0 +1,9 @@
+apiVersion: firestartr.dev/v1
+kind: FirestartrProviderConfig
+metadata:
+  name: fixture-provider-config
+spec:
+  type: aws
+  config: |
+    {
+    }

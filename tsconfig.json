@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "incremental": true,
+    "target": "es2022",
+    "module": "commonjs",
+    "declaration": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "rootDir": ".",
+    "outDir": "dist",
+    "composite": true
+  },
+  "include": [
+    "index.ts",
+    "init.ts",
+    "client.ts",
+    "src/**/*.ts",
+    "test/**/*.ts",
+    ".gen/**/*.ts"
+  ]
+}
+

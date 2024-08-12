@@ -1,0 +1,16 @@
+metadata:
+  name: branch_policy_trunkBasedDevelopment
+  description: The trunk-based-development branch policy
+
+type: trunkBasedDevelopment
+protections:
+  pattern: main
+  enforceAdmins: false
+  requireSignedCommits: true
+  allowsForcePushes: false
+  allowDeletions: false
+  requiredLinearHistory: true
+  requiredPullRequestReviews:
+    - dismissStaleReviews: true
+      requireCodeOwnerReviews: true
+      requiredApprovingReviewCount: 1

@@ -1,0 +1,33 @@
+apiVersion: firestartr.dev/v1
+kind: FirestartrGithubRepositoryFeature
+metadata:
+  name: feature_a-uuid-feature_a-11111
+spec:
+  context:
+    backend:
+      ref:
+        kind: FirestartrProviderConfig
+        name: fixture-provider-config
+        needsSecret: False
+    provider:
+      ref:
+        kind: FirestartrProviderConfig
+        name: fixture-provider-config
+        needsSecret: False
+  firestartr:
+    tfStateKey: uuid-feature_a-11111
+  type: feature_a
+  org: firestartr-test
+  version: v1.0.0
+  repositoryTarget:
+    ref:
+      kind: FirestartrGithubRepository
+      name: test-demo-a
+      needsSecret: False
+    branch: experimental
+
+  files:
+    - path: /my/repo/path/hello.yaml
+      userManaged: true
+      content: |-
+        aGVsbG8gd29ybGQ=

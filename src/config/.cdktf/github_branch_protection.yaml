@@ -1,0 +1,5 @@
+enforce_admins: false
+require_signed_commits: true
+require_conversation_resolution: false
+allows_deletions: true
+allow_force_pushes: false

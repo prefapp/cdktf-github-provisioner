@@ -1,0 +1,102 @@
+apiVersion: firestartr.dev/v1
+kind: FirestartrGithubRepository
+metadata:
+  name: firestartr-test
+spec:
+  context:
+    backend:
+      ref:
+        kind: FirestartrProviderConfig
+        name: fixture-provider-config
+        needsSecret: False
+    provider:
+      ref:
+        kind: FirestartrProviderConfig
+        name: fixture-provider-config
+        needsSecret: False
+  org: firestartr-test
+  firestartr:
+    tfStateKey: 0a52318a-516a-4c05-b0ff-42ffd7745fee
+    technology:
+      stack: example-stack
+      version: "1.0"
+    type: service
+    lifecycle: development
+    system: example-system
+    catalog:
+      - name: firestartr-test
+        kind: component
+        type: library
+        lifecycle: production
+        system: system_a
+        owner:
+          ref:
+            kind: FirestartrGithubGroup
+            name: group-a
+        platformOwner:
+          ref:
+            kind: FirestartrGithubGroup
+            name: group-b
+  repo:
+    allowMergeCommit: true
+    allowSquashMerge: true
+    allowRebaseMerge: true
+    allowAutoMerge: true
+    deleteBranchOnMerge: true
+    autoInit: true
+    archiveOnDestroy: false
+    allowUpdateBranch: true
+    hasIssues: true
+    visibility: private
+    defaultBranch: main
+    codeowners: example-codeowners
+    description: "my description"
+
+  actions:
+    oidc:
+      useDefault: true
+      includeClaimKeys: []
+
+  permissions:
+    - role: push
+      ref:
+        kind: FirestartrGithubGroup
+        name: group-a
+        needsSecret: true
+
+    - role: maintain
+      ref:
+        kind: FirestartrGithubGroup
+        name: group-b
+        needsSecret: true
+
+    - role: maintain
+      ref:
+        kind: FirestartrGithubMembership
+        name: arvegadev
+        needsSecret: false
+
+    - role: pull 
+      collaborator: juanjosevazquezgil 
+
+  branchProtections:
+    - branch: main
+      statusChecks:
+        - "pr_verify"
+      requiredReviewersCount: 2
+      requiredCodeownersReviewers: true
+      enforceAdmins: true
+      requireSignedCommits: true
+      requireConversationResolution: true
+      allowsDeletions: false
+      allowForcePushes: false
+
+  writeConnectionSecretToRef:
+    name: firestartrgithubrepository-test-demo-a-outputs
+    outputs:
+      - key: repoId
+      - key: nodeId
+      - key: fullName
+      - key: htmlUrl
+      - key: sshCloneUrl
+      - key: gitCloneUrl

@@ -1,0 +1,6 @@
+components:
+  - name: example-component
+groups:
+  - name: example-group
+users:
+  - name: example-user

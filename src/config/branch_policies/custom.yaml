@@ -1,0 +1,16 @@
+metadata:
+  name: branch_policy_custom
+  description: The custom policy for importing a new repository
+
+type: custom
+protections:
+  pattern: main
+  enforceAdmins: false
+  requireSignedCommits: true
+  allowsForcePushes: false
+  allowDeletions: false
+  requiredLinearHistory: true
+  requiredPullRequestReviews:
+    - dismissStaleReviews: true
+      requireCodeOwnerReviews: true
+      requiredApprovingReviewCount: 1
