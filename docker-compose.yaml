@@ -1,6 +1,7 @@
 version: "3.7"
 services:
   cdktf:
+    user: node
     build:
       dockerfile: Dockerfile.dev
     working_dir: /library
