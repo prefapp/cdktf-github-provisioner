@@ -1,0 +1,6 @@
+test.sh
+node_modules
+dist
+dist-ncc
+dist-cdktf
+.env

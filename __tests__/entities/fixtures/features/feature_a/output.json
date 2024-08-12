@@ -1,0 +1,18 @@
+{
+  "files": [],
+  "patches": [
+    {
+      "name": "add_annotation",
+      "op": "add",
+      "path": "/metadata/annotations/backstage.io~1feature_a-ref",
+      "value": "url:https://github.com/prefapp/component_a/tree/main"
+    }
+  ],
+  "unpatches": [
+    {
+      "name": "remove_annotation",
+      "op": "remove",
+      "path": "/metadata/annotations/backstage.io~1feature_a-ref"
+    }
+  ]
+}

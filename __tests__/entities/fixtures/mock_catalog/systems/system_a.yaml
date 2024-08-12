@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: system_a
+  description: System A description
+  annotations:
+spec:
+  uuid: "uuid-system_a-1111111"
+  owner: group_a
+  provisioner:
+    status:
+      value: PENDING_REVIEW
+      extras: []
